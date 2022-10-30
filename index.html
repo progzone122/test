@@ -1,13 +1,23 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+
+    <title>Yohoho player</title>
 </head>
 <body>
-    <div id="yohoho" data-kinopoisk="401522"></div>
+    <script>
+        const url = new URL(window.location.href);
+        const getParams = new URLSearchParams(url.search.substring(1));
+        $(() => {
+            if(getParams.data_title !== undefined){
+                $('body').append(`<div id="yohoho" data-title="${ getParams.data_title }"></div>`);
+            }
+        });
+    </script>
+    <script src="./node_modules/jquery/dist/jquery.min.js"></script>
     <script src="https://yohoho.cc/yo.js"></script>
 </body>
 </html>
