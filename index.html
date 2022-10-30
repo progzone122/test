@@ -13,9 +13,10 @@
     <script>
         const url = new URL(window.location.href);
         const getParams = new URLSearchParams(url.search.substring(1));
+        console.log(getParams);
         $(() => {
-            if(getParams.data_title !== undefined){
-                $('body').append(`<div id="yohoho" data-title="${ getParams.data_title }"></div>`);
+            if(getParams.get("data_title") !== undefined){
+                $("body").append(`<div id="yohoho" data-title="${ getParams.data_title }"></div>`);
             }
         });
     </script>
