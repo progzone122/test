@@ -8,18 +8,19 @@
     <title>Yohoho player</title>
 </head>
 <body>
-    <div id="yohoho" data-title="d"></div>
+    <div id="player">
+
+    </div>
     <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
-    <script src="https://yohoho.cc/yo.js"></script>
     <script>
         const url = new URL(window.location.href);
         const getParams = new URLSearchParams(url.search.substring(1));
         console.log(getParams);
-        $(() => {
-            if(getParams.get("data_title") !== undefined){
-                $("#yohoho").attr("data-title", getParams.get("data_title"));
-            }
-        });
+
+        if(getParams.get("data_title") !== undefined){
+            $("#player").append(`<div id="yohoho" style="width:1350px;height:370px;border:0;margin:0;padding:0;overflow:hidden;position:relative" data-title="${ getParams.get("data_title") }"></div>`);
+        }
     </script>
+    <script src="https://yohoho.cc/yo.js"></script>
 </body>
 </html>
